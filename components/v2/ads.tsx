@@ -1,6 +1,13 @@
 import { Ad } from "@/components/types";
+import { get } from "@/utils/get";
 
-export const Ads = ({ ads }: { ads: Ad[] }) => {
+async function getAds(): Promise<Ad[]> {
+  return await get("/ads");
+}
+
+export async function Ads() {
+  const ads = await getAds();
+
   return (
     <div className="py-4">
       <h2 className="text-lg text-slate-400 tracking-wider">Ads</h2>
@@ -14,4 +21,4 @@ export const Ads = ({ ads }: { ads: Ad[] }) => {
       </div>
     </div>
   );
-};
+}
