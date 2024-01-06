@@ -1,7 +1,7 @@
 import {User} from "@/components/types";
-import {About} from "@/components/about";
-import {Friends} from "@/components/friends";
-import {Feeds} from "@/components/feeds";
+import {About} from "@/components/v1/about";
+import {Friends} from "@/components/v1/friends";
+import {Feeds} from "@/components/v1/feeds";
 
 export const Profile = ({user, friends}: { user: User; friends: User[] }) => {
   return (
