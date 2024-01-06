@@ -1,5 +1,7 @@
+import React from "react";
 import type { User } from "@/components/types";
 import { get } from "@/utils/get";
+import Image from "next/image";
 
 async function getFriends(id: string) {
   return await get<User[]>(`/users/${id}/friends`);
@@ -14,10 +16,12 @@ async function Friends({ id }: { id: string }) {
       <div className="flex flex-row pt-4 gap-4">
         {friends.map((user) => (
           <div key={user.id} className="flex flex-col items-center">
-            <img
+            <Image
               src={`https://i.pravatar.cc/150?u=${user.id}`}
               alt={`User ${user.name} avatar`}
               className="w-8 h-8 rounded-full"
+              width={32}
+              height={32}
             />
             <span className="text-xs text-slate-700">{user.name}</span>
           </div>
