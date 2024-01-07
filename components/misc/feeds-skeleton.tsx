@@ -3,7 +3,7 @@ import React from "react";
 function FeedsSkeleton() {
   return (
     <div className="py-4 animate-pulse">
-      <h2 className="text-lg text-slate-900 tracking-wider w-16 h-3 bg-slate-100"></h2>
+      <h2 className="text-lg text-slate-900 tracking-wider w-16 h-4 bg-slate-100"></h2>
       <div className="flex flex-col py-4 gap-2">
         {[1, 2].map((feed) => (
           <div key={feed} className="flex flex-col gap-4">

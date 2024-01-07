@@ -2,7 +2,7 @@ import React from "react";
 
 function FriendsSkeleton() {
   return (
-    <div className="py-4 animate-pulse">
+    <div className="animate-pulse">
       <h2 className="text-lg text-slate-900 tracking-wider w-12 h-3 bg-slate-100"></h2>
       <div className="flex flex-row pt-4 gap-6">
         {[1, 2, 3].map((user) => (

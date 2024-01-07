@@ -19,3 +19,9 @@ export type Ad = {
   title: string;
   content: string;
 };
+
+export type Feed = {
+  id: string;
+  title: string;
+  description: string;
+};
