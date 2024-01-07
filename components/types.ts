@@ -6,6 +6,14 @@ export type User = {
   interests: string[];
 };
 
+export type UserDetail = {
+  id: string;
+  name: string;
+  bio: string;
+  twitter: string;
+  homepage: string;
+}
+
 export type Ad = {
   id: string;
   title: string;

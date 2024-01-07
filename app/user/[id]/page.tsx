@@ -1,4 +1,4 @@
-import { Profile } from "@/components/v2/profile";
+import { Profile } from "@/components/v3/profile";
 
 interface PageProps {
   params: {
