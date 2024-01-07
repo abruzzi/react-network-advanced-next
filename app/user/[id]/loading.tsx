@@ -8,8 +8,8 @@ export default function Loading() {
       <h1 className="text-4xl py-4 mb-4 tracking-wider font-bold">Profile</h1>
       <div className="rounded border p-6 border-slate-300">
         <AboutSkeleton />
-        <FriendsSkeleton />
         <FeedsSkeleton />
+        <FriendsSkeleton />
       </div>
     </div>
   );
