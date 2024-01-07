@@ -5,6 +5,8 @@ import { Friends } from "@/components/v2/friends";
 import { get } from "@/utils/get";
 import { User } from "@/components/types";
 import { Feeds } from "@/components/v2/feeds";
+import { AboutSkeleton } from "@/components/misc/about-skeleton";
+import { FriendsSkeleton } from "@/components/misc/friends-skeleton";
 
 async function getUser(id: string) {
   return await get<User>(`/users/${id}`);
@@ -18,15 +20,15 @@ export async function Profile({ id }: { id: string }) {
       <h1 className="text-4xl py-4 mb-4 tracking-wider font-bold">Profile</h1>
       <div className="rounded border p-6 border-slate-300">
         <>
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<AboutSkeleton />}>
             <About user={user} />
           </Suspense>
 
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<FriendsSkeleton />}>
             <Friends id={id} />
           </Suspense>
 
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <Feeds category={user.interests[0]} />
           </Suspense>
         </>
