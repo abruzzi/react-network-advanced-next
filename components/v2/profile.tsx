@@ -7,6 +7,7 @@ import { User } from "@/components/types";
 import { Feeds } from "@/components/v2/feeds";
 import { AboutSkeleton } from "@/components/misc/about-skeleton";
 import { FriendsSkeleton } from "@/components/misc/friends-skeleton";
+import {FeedsSkeleton} from "@/components/misc/feeds-skeleton";
 
 async function getUser(id: string) {
   return await get<User>(`/users/${id}`);
@@ -28,7 +29,7 @@ export async function Profile({ id }: { id: string }) {
             <Friends id={id} />
           </Suspense>
 
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<FeedsSkeleton />}>
             <Feeds category={user.interests[0]} />
           </Suspense>
         </>
