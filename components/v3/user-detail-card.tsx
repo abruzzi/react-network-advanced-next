@@ -6,13 +6,8 @@ import {
   CardFooter,
   CardHeader,
 } from "@nextui-org/react";
-import { get } from "@/utils/get";
-import { UserDetail } from "@/components/types";
 import Link from "next/link";
-
-async function getUserDetail(id: string) {
-  return await get<UserDetail>(`/users/${id}/details`);
-}
+import { getUserDetail } from "@/components/v3/apis";
 
 export async function UserTwitterCard({ id }: { id: string }) {
   const detail = await getUserDetail(id);

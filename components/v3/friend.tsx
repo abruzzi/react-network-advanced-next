@@ -11,12 +11,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@nextui-org/react";
+import { preload } from "@/components/v3/apis";
 
 const UserDetailCard = dynamic(() => import("./user-detail-card"));
 
 export const Friend = ({ user }: { user: User }) => {
   const handleHover = () => {
-    console.log("preloading...");
+    preload(user.id);
   };
 
   return (
@@ -38,7 +39,7 @@ export const Friend = ({ user }: { user: User }) => {
             <span className="text-xs text-slate-700">{user.name}</span>
           </button>
         </PopoverTrigger>
-        <PopoverContent className="w-[240px]">
+        <PopoverContent className="max-w-[240px] min-w-[200px] max-h-40 min-h-32">
           <Suspense fallback={<Loading />}>
             <UserDetailCard id={user.id} />
           </Suspense>
