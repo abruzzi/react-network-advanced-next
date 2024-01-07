@@ -1,15 +1,8 @@
 import React from "react";
 import type { User } from "@/components/types";
-import { get } from "@/utils/get";
 import Image from "next/image";
 
-async function getFriends(id: string) {
-  return await get<User[]>(`/users/${id}/friends`);
-}
-
-async function Friends({ id }: { id: string }) {
-  const friends = await getFriends(id);
-
+async function Friends({ friends }: { friends: User[] }) {
   return (
     <div className="py-4">
       <h2 className="text-lg text-slate-900 tracking-wider">Friends</h2>

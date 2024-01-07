@@ -7,14 +7,18 @@ import { User } from "@/components/types";
 import { Feeds } from "@/components/v2/feeds";
 import { AboutSkeleton } from "@/components/misc/about-skeleton";
 import { FriendsSkeleton } from "@/components/misc/friends-skeleton";
-import {FeedsSkeleton} from "@/components/misc/feeds-skeleton";
+import { FeedsSkeleton } from "@/components/misc/feeds-skeleton";
 
 async function getUser(id: string) {
   return await get<User>(`/users/${id}`);
 }
 
+async function getFriends(id: string) {
+  return await get<User[]>(`/users/${id}/friends`);
+}
+
 export async function Profile({ id }: { id: string }) {
-  const user = await getUser(id);
+  const [user, friends] = await Promise.all([getUser(id), getFriends(id)]);
 
   return (
     <div className="max-w-3xl m-auto my-4 text-slate-800">
@@ -26,7 +30,7 @@ export async function Profile({ id }: { id: string }) {
           </Suspense>
 
           <Suspense fallback={<FriendsSkeleton />}>
-            <Friends id={id} />
+            <Friends friends={friends} />
           </Suspense>
 
           <Suspense fallback={<FeedsSkeleton />}>
