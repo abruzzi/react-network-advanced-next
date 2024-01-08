@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import { getUserDetail } from "@/components/v3/apis";
 
-export async function UserTwitterCard({ id }: { id: string }) {
+export async function UserDetailCard({ id }: { id: string }) {
   const detail = await getUserDetail(id);
 
   return (
@@ -46,4 +46,4 @@ export async function UserTwitterCard({ id }: { id: string }) {
   );
 }
 
-export default UserTwitterCard;
+export default UserDetailCard;
